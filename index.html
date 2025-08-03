@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kacper A. Walentynowicz, PhD</title>
+    <!-- Use Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #374151; /* Dark gray text */
+        }
+        .container {
+            max-width: 1000px;
+        }
+        .header-link {
+            transition: color 0.3s ease;
+        }
+        .header-link:hover {
+            color: #1f2937; /* Darker gray on hover */
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #1f2937;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main container with a professional, centered layout -->
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <!-- Header/Navigation Section -->
+        <header class="flex flex-col md:flex-row justify-between items-center mb-12 md:mb-20">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <h1 class="text-3xl font-bold text-gray-900">Kacper A. Walentynowicz, PhD</h1>
+                <p class="text-lg text-gray-600">Research Associate | Cancer Biology & Genetics</p>
+            </div>
+            <nav class="flex space-x-6 text-gray-500 font-medium text-lg">
+                <a href="#about" class="header-link">About</a>
+                <a href="#research" class="header-link">Research</a>
+                <a href="#publications" class="header-link">Publications</a>
+                <a href="#contact" class="header-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- About Me Section -->
+        <section id="about" class="mb-12 md:mb-24">
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                <!-- Placeholder for a professional portrait -->
+                <div class="w-48 h-48 flex-shrink-0 bg-gray-300 rounded-full overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/192x192/9ca3af/ffffff?text=K.W." alt="Kacper Walentynowicz" class="w-full h-full object-cover">
+                </div>
+                <div class="text-lg text-gray-700 leading-relaxed text-center md:text-left">
+                    <p class="mb-4">
+                        I am a Research Associate with a strong background in Cancer Biology and Genetics, currently based in New York City. My work focuses on understanding the tumor microenvironment of Glioblastoma (GBM), with a particular interest in the role of glioma-associated microglia and macrophages.
+                    </p>
+                    <p>
+                        Through single-cell sequencing and other advanced techniques, I investigate the functional heterogeneity of immune cells within tumors and how they contribute to tumor progression and immune evasion. My goal is to identify new therapeutic targets to improve the prognosis for patients with this aggressive form of brain cancer. I am an alumnus of the Nencki Institute of Experimental Biology and Scripps Research.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="mb-12 md:mb-24">
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Research Interests</h2>
+            <div class="text-lg text-gray-700 leading-relaxed">
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Glioblastoma (GBM) tumor microenvironment</li>
+                    <li>Single-cell heterogeneity of cancer and immune cells</li>
+                    <li>Glioma-associated microglia and macrophages (GAMs)</li>
+                    <li>Molecular mechanisms of immune evasion in brain tumors</li>
+                    <li>Translational research for novel GBM therapies</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="mb-12 md:mb-24">
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Selected Publications</h2>
+            <div class="space-y-8 text-gray-700">
+                <!-- Publication 1 -->
+                <div class="publication-item">
+                    <h3 class="text-xl font-semibold text-gray-800">
+                        Single-cell heterogeneity of EGFR and CDK4 co-amplification is linked to immune infiltration in glioblastoma
+                    </h3>
+                    <p class="text-sm italic text-gray-600">
+                        Kacper A Walentynowicz, Dalit Engelhardt, et al.
+                    </p>
+                    <p class="text-sm font-medium text-gray-500">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank" class="hover:underline text-blue-600">Cell Reports</a>, 2023 Mar 28;42(3):112235.
+                    </p>
+                </div>
+                <!-- Publication 2 -->
+                <div class="publication-item">
+                    <h3 class="text-xl font-semibold text-gray-800">
+                        Single-cell RNA sequencing reveals functional heterogeneity of glioma-associated brain macrophages
+                    </h3>
+                    <p class="text-sm italic text-gray-600">
+                        Natalia Ochocka, Pawel Segit, Kacper Adam Walentynowicz, et al.
+                    </p>
+                    <p class="text-sm font-medium text-gray-500">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="hover:underline text-blue-600">Nature Communications</a>, 2021 Feb 19;12(1):1111.
+                    </p>
+                </div>
+                <!-- Publication 3 -->
+                <div class="publication-item">
+                    <h3 class="text-xl font-semibold text-gray-800">
+                        In Search for Reliable Markers of Glioma-Induced Polarization of Microglia
+                    </h3>
+                    <p class="text-sm italic text-gray-600">
+                        Kacper A Walentynowicz, Natalia Ochocka, et al.
+                    </p>
+                    <p class="text-sm font-medium text-gray-500">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank" class="hover:underline text-blue-600">Frontiers in Immunology</a>, 2018 Jun 15;9:1329.
+                    </p>
+                </div>
+                <!-- Publication 4 -->
+                <div class="publication-item">
+                    <h3 class="text-xl font-semibold text-gray-800">
+                        Immune microenvironment of gliomas
+                    </h3>
+                    <p class="text-sm italic text-gray-600">
+                        Anna Gieryng, Dominika Pszczolkowska, Kacper A Walentynowicz, et al.
+                    </p>
+                    <p class="text-sm font-medium text-gray-500">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank" class="hover:underline text-blue-600">Laboratory Investigation</a>, 2017 May;97(5):498-518.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-8">
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Contact & Profiles</h2>
+            <div class="text-lg text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                    For inquiries or collaboration opportunities, please feel free to reach out.
+                </p>
+                <div class="flex items-center space-x-4">
+                    <!-- Placeholder for email link -->
+                    <a href="mailto:your.email@example.com" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2.003 5.884L10.153 11l-8.15 5.116V5.884zM14.041 12l8.155-5.116v10.232L14.041 12zm0 0L22.19 5.884A2 2 0 0020.245 5H3.755a2 2 0 00-1.945.884L14.04 12z" />
+                        </svg>
+                    </a>
+                    <!-- LinkedIn Link -->
+                    <a href="https://www.linkedin.com/in/kpw29" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765 0-.974.784-1.765 1.75-1.765s1.75.791 1.75 1.765c0 .975-.784 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <!-- ORCID Link -->
+                    <a href="https://orcid.org/0000-0001-5079-1566" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M225.82 233.16L189.55 196.88L189.47 196.88A92.1 92.1 0 0 1 128 220a92 92 0 1 1 97.82-126.78L225.82 233.16zM128 224a96 96 0 1 0-96-96a96 96 0 0 0 96 96zm-48-96a48 48 0 1 1 48-48a48 48 0 0 1-48 48zm0-96a48 48 0 1 0 48 48a48 48 0 0 0-48-48zm144.3 84.77l-15.65-15.65a48 48 0 1 0-5.71 88.54l-11.83-11.83a64.09 64.09 0 0 1 0-90.18l11.83-11.83a48 48 0 1 0 5.71 88.54l15.65-15.65zm-15.65-15.65a48 48 0 1 0-5.71 88.54l-11.83-11.83a64.09 64.09 0 0 1 0-90.18l11.83-11.83a48 48 0 1 0 5.71 88.54z"/>
+                         </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 Kacper A. Walentynowicz. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
