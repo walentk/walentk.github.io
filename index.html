@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kacper A. Walentynowicz, PhD - Research Associate</title>
@@ -10,16 +9,17 @@
     
     <meta property="og:title" content="Kacper A. Walentynowicz, PhD">
     <meta property="og:description" content="Research Associate in Cancer Biology & Genetics, specializing in the tumor microenvironment of Glioblastoma.">
-    <meta property="og:image" content="https://yourwebsite.com/headshot.jpeg"> <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/headshot.jpeg">
+    <meta property="og:url" content="https://yourwebsite.com">
     <meta property="og:type" content="website">
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-            color: #374151;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #374151; /* Dark gray text */
         }
         .container {
             max-width: 1000px;
@@ -28,7 +28,7 @@
             transition: color 0.3s ease;
         }
         .header-link:hover {
-            color: #1f2937;
+            color: #1f2937; /* Darker gray on hover */
         }
         .section-title::after {
             content: '';
@@ -40,17 +40,13 @@
         }
     </style>
 </head>
-</head>
 <body class="antialiased">
 
-    <!-- Main container with a professional, centered layout -->
     <div class="container mx-auto px-4 py-8 md:py-16">
 
-        <!-- Header/Navigation Section -->
         <header class="flex flex-col md:flex-row justify-between items-center mb-12 md:mb-20">
             <div class="mb-4 md:mb-0 text-center md:text-left">
                 <h1 class="text-3xl font-bold text-gray-900">Kacper A. Walentynowicz, PhD</h1>
-                <!-- The two professional titles are now listed on separate lines for clarity. -->
                 <p class="text-lg text-gray-600">Research Associate | Cancer Biology & Genetics, MSKCC</p>
                 <p class="text-lg text-gray-600">Life Sciences Technology Innovation Fellow, SC Johnson College of Business</p>
             </div>
@@ -63,13 +59,10 @@
             </nav>
         </header>
 
-        <!-- About Me Section -->
         <section id="about" class="mb-12 md:mb-24">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <!-- Placeholder for a professional portrait -->
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
                 <div class="w-48 h-48 flex-shrink-0 bg-gray-300 rounded-full overflow-hidden shadow-lg">
-                    <!-- The image source has been updated to 'headshot.jpeg' -->
                     <img src="headshot.jpeg" onerror="this.src='https://placehold.co/192x192/9ca3af/ffffff?text=K.W.'" alt="Kacper Walentynowicz" class="w-full h-full object-cover">
                 </div>
                 <div class="text-lg text-gray-700 leading-relaxed text-center md:text-left">
@@ -81,56 +74,47 @@
                     </p>
                 </div>
             </div>
+
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Experience</h3>
+                <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-4">                  
+                    <li class="mb-8 ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
+                            <svg class="w-2.5 h-2.5 text-blue-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </span>
+                        <h4 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Research Associate, MSKCC<span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded ml-3">Current</span></h4>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2023 - Present</time>
+                        <p class="text-base font-normal text-gray-700">Studying the tumor microenvironment of Glioblastoma.</p>
+                    </li>
+                    <li class="mb-8 ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
+                            <svg class="w-2.5 h-2.5 text-blue-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </span>
+                        <h4 class="mb-1 text-lg font-semibold text-gray-900">Postdoctoral Fellow, Scripps Research</h4>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2020 - 2023</time>
+                        <p class="text-base font-normal text-gray-700">Focused on advanced genomic and proteomic techniques.</p>
+                    </li>
+                </ol>
+            </div>
         </section>
-        <section id="about" class="mb-12 md:mb-24">
-    <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">About Me</h2>
-    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-        </div>
-    
-    <div class="mt-12">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Experience</h3>
-        <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-4">                  
-            <li class="mb-8 ms-6">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
-                    <svg class="w-2.5 h-2.5 text-blue-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                    </svg>
-                </span>
-                <h4 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Research Associate, MSKCC<span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded ml-3">Current</span></h4>
-                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2023 - Present</time>
-                <p class="text-base font-normal text-gray-700">Studying the tumor microenvironment of Glioblastoma.</p>
-            </li>
-            <li class="mb-8 ms-6">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
-                    <svg class="w-2.5 h-2.5 text-blue-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                    </svg>
-                </span>
-                <h4 class="mb-1 text-lg font-semibold text-gray-900">Postdoctoral Fellow, Scripps Research</h4>
-                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2020 - 2023</time>
-                <p class="text-base font-normal text-gray-700">Focused on advanced genomic and proteomic techniques.</p>
-            </li>
-        </ol>
-    </div>
-</section>
         
-        <!-- Education Section -->
         <section id="education" class="mb-12 md:mb-24">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Education</h2>
             <div class="space-y-6 text-gray-700">
-                <!-- PhD, MSCA Fellow -->
                 <div class="edu-item flex items-center space-x-4">
                     <img src="https://keystoneacademic-res.cloudinary.com/image/upload/f_auto/q_auto/g_auto/w_250/dpr_2.0/element/15/153541_cropped-cropped-logo-nencki1.png" alt="Nencki Institute logo" class="h-10 w-auto">
                     <div class="flex flex-col">
                         <div class="flex items-center">
                             <h3 class="text-xl font-semibold text-gray-800">PhD, MSCA Fellow</h3>
-                            <!-- Marie Curie Actions logo added back as a smaller icon -->
                             <img src="https://www.mariecuriealumni.eu/themes/on/images/logo.jpg" alt="Marie Curie Alumni logo" class="h-5 w-auto ml-2">
                         </div>
                         <p class="text-sm italic text-gray-600">Nencki Institute, Warsaw, Poland</p>
                     </div>
                 </div>
-                <!-- MSc, Molecular Medicine -->
                 <div class="edu-item flex items-center space-x-4">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPhN6gYILavwuqNPjucaZyhu0xJ-e8hWTUvg&s" alt="University of Sheffield logo" class="h-10 w-auto">
                     <div class="flex flex-col">
@@ -138,7 +122,6 @@
                         <p class="text-sm italic text-gray-600">The Sheffield University Medical School, UK</p>
                     </div>
                 </div>
-                <!-- PDP in Cancer Informatics -->
                 <div class="edu-item flex items-center space-x-4">
                     <img src="https://upload.wikimedia.org/wikipedia/sco/thumb/a/ad/Imperial_College_London_crest.svg/1200px-Imperial_College_London_crest.svg.png" alt="Imperial College London logo" class="h-10 w-auto">
                     <div class="flex flex-col">
@@ -146,7 +129,6 @@
                         <p class="text-sm italic text-gray-600">Imperial College London, UK</p>
                     </div>
                 </div>
-                <!-- BSc (Hons), Biomedical Science -->
                 <div class="edu-item flex items-center space-x-4">
                     <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F282748109%2F177326661021%2F1%2Foriginal.20220511-134302?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1250%2C1250&s=c1ad5769f906fb9850a31346e2936306" alt="University of Wolverhampton logo" class="h-10 w-auto">
                     <div class="flex flex-col">
@@ -157,7 +139,6 @@
             </div>
         </section>
 
-        <!-- Research Section -->
         <section id="research" class="mb-12 md:mb-24">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Research Interests</h2>
             <div class="text-lg text-gray-700 leading-relaxed">
@@ -171,11 +152,9 @@
             </div>
         </section>
 
-        <!-- Publications Section -->
         <section id="publications" class="mb-12 md:mb-24">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Selected Publications</h2>
             <div class="space-y-8 text-gray-700">
-                <!-- Publication 1 -->
                 <div class="publication-item">
                     <h3 class="text-xl font-semibold text-gray-800">
                         Single-cell heterogeneity of EGFR and CDK4 co-amplification is linked to immune infiltration in glioblastoma
@@ -187,7 +166,6 @@
                         <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank" class="hover:underline text-blue-600">Cell Reports</a>, 2023 Mar 28;42(3):112235.
                     </p>
                 </div>
-                <!-- Publication 2 -->
                 <div class="publication-item">
                     <h3 class="text-xl font-semibold text-gray-800">
                         Single-cell RNA sequencing reveals functional heterogeneity of glioma-associated brain macrophages
@@ -199,7 +177,6 @@
                         <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="hover:underline text-blue-600">Nature Communications</a>, 2021 Feb 19;12(1):1111.
                     </p>
                 </div>
-                <!-- Publication 3 -->
                 <div class="publication-item">
                     <h3 class="text-xl font-semibold text-gray-800">
                         In Search for Reliable Markers of Glioma-Induced Polarization of Microglia
@@ -211,7 +188,6 @@
                         <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank" class="hover:underline text-blue-600">Frontiers in Immunology</a>, 2018 Jun 15;9:1329.
                     </p>
                 </div>
-                <!-- Publication 4 -->
                 <div class="publication-item">
                     <h3 class="text-xl font-semibold text-gray-800">
                         Immune microenvironment of gliomas
@@ -226,24 +202,20 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="mb-8">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Contact & Profiles</h2>
             <div class="text-lg text-gray-700 leading-relaxed">
                 <div class="flex items-center space-x-4">
-                    <!-- LinkedIn Link -->
                     <a href="https://www.linkedin.com/in/kawalentynowicz/" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765 0-.974.784-1.765 1.75-1.765s1.75.791 1.75 1.765c0 .975-.784 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                     </a>
-                    <!-- ORCID Link -->
                     <a href="https://orcid.org/0000-0001-5079-1566" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 256 256" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 256 256" fill="currentColor">
                             <path d="M225.82 233.16L189.55 196.88L189.47 196.88A92.1 92.1 0 0 1 128 220a92 92 0 1 1 97.82-126.78L225.82 233.16zM128 224a96 96 0 1 0-96-96a96 96 0 0 0 96 96zm-48-96a48 48 0 1 1 48-48a48 48 0 0 1-48 48zm0-96a48 48 0 1 0 48 48a48 48 0 0 0-48-48zm144.3 84.77l-15.65-15.65a48 48 0 1 0-5.71 88.54l-11.83-11.83a64.09 64.09 0 0 1 0-90.18l11.83-11.83a48 48 0 1 0 5.71 88.54l15.65-15.65zm-15.65-15.65a48 48 0 1 0-5.71 88.54l-11.83-11.83a64.09 64.09 0 0 1 0-90.18l11.83-11.83a48 48 0 1 0 5.71 88.54z"/>
-                         </svg>
+                        </svg>
                     </a>
-                    <!-- Bluesky Link -->
                     <a href="https://bsky.app/profile/kacperwphd.bsky.social" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M7.4 12.6l-5.6 5.6c-.9.9-1.4 2.2-1.4 3.6 0 2.8 2.2 5 5 5 .1 0 .3 0 .4-.1l5.6-5.6-5.6-5.5zM12.6 7.4l5.6-5.6c.9-.9 2.2-1.4 3.6-1.4 2.8 0 5 2.2 5 5 0 .1 0 .3-.1.4l-5.6 5.6-5.5-5.5zM16.6 17.6c-1.2-1.2-2.8-1.9-4.5-1.9s-3.3.7-4.5 1.9c-.9.9-1.4 2.2-1.4 3.6 0 2.8 2.2 5 5 5 .1 0 .3 0 .4-.1l5.6-5.6-5.6-5.5zM7.4 12.6l-5.6 5.6c-.9.9-1.4 2.2-1.4 3.6 0 2.8 2.2 5 5 5 .1 0 .3 0 .4-.1l5.6-5.6-5.6-5.5zM12.6 7.4l5.6-5.6c.9-.9 2.2-1.4 3.6-1.4 2.8 0 5 2.2 5 5 0 .1 0 .3-.1.4l-5.6 5.6-5.5-5.5zM16.6 17.6c-1.2-1.2-2.8-1.9-4.5-1.9s-3.3.7-4.5 1.9c-.9.9-1.4 2.2-1.4 3.6 0 2.8 2.2 5 5 5 .1 0 .3 0 .4-.1l5.6-5.6-5.6-5.5z" />
@@ -253,7 +225,6 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="mt-16 text-center text-gray-500 text-sm">
             <p>&copy; 2025 Kacper A. Walentynowicz. All Rights Reserved.</p>
         </footer>
