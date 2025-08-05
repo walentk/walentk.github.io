@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Leaflet CSS -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  integrity="sha256-o9N1j8MkQx7XZ1RyxcNWi65vIOkN4zV2hA9p1w+1L8g="
-  crossorigin=""
-/>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kacper A. Walentynowicz, PhD - Research Associate</title>
@@ -158,11 +150,6 @@
                     <li>Translational research for novel GBM therapies</li>
                 </ul>
             </div>
-            <section id="map" class="mb-12 md:mb-24">
-                <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Scientific Collaborations Map</h2>
-                <div id="collab-map" class="w-full h-[500px] rounded-lg shadow-lg"></div>
-            </section>
-
         </section>
 
         <section id="publications" class="mb-12 md:mb-24">
@@ -263,57 +250,6 @@
         </footer>
 
     </div>
-<!-- Leaflet JS -->
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-o8EyJz8pOpZlA/fHQjAcT0bF1R9AY1LRL6zxZ7RxO4o="
-  crossorigin=""
-></script>
-
-<script>
-  const map = L.map("collab-map").setView([20, 0], 2); // world view
-
-  // Add OpenStreetMap tiles
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 18,
-    attribution: '© OpenStreetMap contributors',
-  }).addTo(map);
-
-  // Institution locations (latitude, longitude, name)
-  const institutions = [
-    {
-      name: "Sloan Kettering Institute, USA",
-      coords: [40.7644, -73.9546],
-    },
-    {
-      name: "Scripps Research, USA",
-      coords: [32.8885, -117.2430],
-    },
-    {
-      name: "Nencki Institute, Warsaw, Poland",
-      coords: [52.214, 21.042],
-    },
-    {
-      name: "University of Sheffield, UK",
-      coords: [53.3811, -1.4877],
-    },
-    {
-      name: "Imperial College London, UK",
-      coords: [51.4988, -0.1749],
-    },
-    {
-      name: "University of Wolverhampton, UK",
-      coords: [52.5900, -2.1284],
-    },
-  ];
-
-  // Add markers
-  institutions.forEach((inst) => {
-    L.marker(inst.coords)
-      .addTo(map)
-      .bindPopup(`<strong>${inst.name}</strong>`);
-  });
-</script>
 
 </body>
 </html>
