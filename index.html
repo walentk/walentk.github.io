@@ -38,6 +38,34 @@
             background-color: #1f2937;
             margin-top: 8px;
         }
+        /* Styles for the word cloud */
+        .word-cloud-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center; /* Center words vertically */
+            gap: 10px;
+            line-height: 1.2;
+            text-align: center;
+            background-color: #ffffff; /* White background for the cloud */
+            padding: 1.5rem;
+            /* Reverted to standard rounded corners */
+            border-radius: 0.5rem; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            /* Removed explicit width/height to allow content to dictate size within max-w-prose */
+            overflow: hidden; /* Hide content outside the shape */
+            position: relative;
+        }
+        .word-cloud-term {
+            font-weight: 600;
+            color: #1f2937; /* Darker text for terms */
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+            cursor: default; /* Indicate it's not clickable */
+        }
+        .word-cloud-term:hover {
+            transform: translateY(-2px);
+            color: #4b5563; /* Slightly lighter on hover */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -55,7 +83,7 @@
                 <a href="#education" class="header-link">Education</a>
                 <a href="#research" class="header-link">Research</a>
                 <a href="#publications" class="header-link">Publications</a>
-                <a href="#contact" class="header-link">Contact</a>
+                <!-- Removed Contact link here -->
             </nav>
         </header>
 
@@ -155,6 +183,12 @@
                     <li>Translational research for novel GBM therapies</li>
                 </ul>
             </div>
+            
+            <div class="mt-8">
+                <div id="word-cloud" class="word-cloud-container max-w-prose mx-auto">
+                    <!-- Word cloud will be generated here by JavaScript -->
+                </div>
+            </div>
         </section>
 
         <section id="publications" class="mb-12 md:mb-24">
@@ -185,7 +219,7 @@
             Single-cell RNA sequencing reveals functional heterogeneity of glioma-associated brain macrophages
         </h3>
         <p class="text-sm italic text-gray-600">
-            Natalia Ochocka, Pawel Segit, Kacper A Walentynowicz, et al.
+            Natalia Ochocka, Pawel Segit, Kacper A Walentynowicz, et. al.
         </p>
         <p class="text-sm font-medium text-gray-500">
             <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="hover:underline text-blue-600">Nature Communications</a>, 2021 Feb 19;12(1):1111.
@@ -258,6 +292,86 @@
         </footer>
 
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dynamically generated research terms based on provided abstracts
+            let researchTerms = [
+                { term: "Glioblastoma", weight: 5 },
+                { term: "Tumor Microenvironment", weight: 5 },
+                { term: "Immune Cells", weight: 5 },
+                { term: "Microglia", weight: 4 },
+                { term: "Macrophages", weight: 4 },
+                { term: "Glioma", weight: 4 },
+                { term: "Single-cell Sequencing", weight: 4 },
+                { term: "Heterogeneity", weight: 3 },
+                { term: "Immune Evasion", weight: 3 },
+                { term: "Brain Tumor", weight: 3 },
+                { term: "Myeloid Cells", weight: 3 },
+                { term: "Genomic Alterations", weight: 2 },
+                { term: "Therapeutic Targets", weight: 2 },
+                { term: "CNS", weight: 2 },
+                { term: "Antitumor Responses", weight: 2 },
+                { term: "Functional Phenotypes", weight: 2 },
+                { term: "Gene Expression", weight: 2 },
+                { term: "Tumor Progression", weight: 2 },
+                { term: "Immunotherapy", weight: 2 },
+                { term: "Oncogenes", weight: 1 },
+                { term: "Spatial Profiling", weight: 1 },
+                { term: "FISH", weight: 1 },
+                { term: "EGFR", weight: 1 },
+                { term: "CDK4", weight: 1 },
+                { term: "PDGFRA", weight: 1 },
+                { term: "CD163+", weight: 1 },
+                { term: "Immunosuppressive", weight: 1 },
+                { term: "Sex-Specific", weight: 1 },
+                { term: "T Lymphocytes", weight: 1 },
+                { term: "MDSCs", weight: 1 },
+                { term: "Cytokines", weight: 1 },
+                { term: "Chemokines", weight: 1 },
+                { term: "T Regulatory Cells", weight: 1 },
+                { term: "CAR-macrophage", weight: 1 },
+                { term: "Homeostasis", weight: 1 },
+                { term: "Polarization", weight: 1 },
+                { term: "Transcriptomic Markers", weight: 1 },
+                { term: "Clinical Samples", weight: 1 },
+                { term: "Experimental Models", weight: 1 },
+                { term: "Cell-Cell Interactions", weight: 1 }
+            ];
+
+            // Shuffle the array to mix the order of words
+            for (let i = researchTerms.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [researchTerms[i], researchTerms[j]] = [researchTerms[j], researchTerms[i]]; // ES6 swap
+            }
+
+            const wordCloudContainer = document.getElementById('word-cloud');
+            const maxFontSize = 32; // Maximum font size for the highest weight
+            const minFontSize = 16; // Minimum font size for the lowest weight
+            
+            // Ensure there's a range to avoid division by zero if all weights are the same
+            const maxWeight = Math.max(...researchTerms.map(t => t.weight));
+            const minWeight = Math.min(...researchTerms.map(t => t.weight));
+            const weightRange = maxWeight - minWeight;
+
+            researchTerms.forEach(item => {
+                const span = document.createElement('span');
+                span.textContent = item.term;
+                span.classList.add('word-cloud-term');
+
+                // Calculate font size based on weight
+                let fontSize;
+                if (weightRange > 0) {
+                    fontSize = minFontSize + (item.weight - minWeight) / weightRange * (maxFontSize - minFontSize);
+                } else {
+                    fontSize = (maxFontSize + minFontSize) / 2; // Default to middle size if all weights are same
+                }
+                span.style.fontSize = `${fontSize}px`;
+
+                wordCloudContainer.appendChild(span);
+            });
+        });
+    </script>
 
 </body>
 </html>
