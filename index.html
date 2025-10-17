@@ -7,29 +7,34 @@
     
     <meta name="description" content="Official website of Kacper A. Walentynowicz, PhD. Research Associate in Cancer Biology & Genetics, specializing in the tumor microenvironment of Glioblastoma.">
     
+    <!-- Open Graph Tags for Sharing -->
     <meta property="og:title" content="Kacper A. Walentynowicz, PhD">
     <meta property="og:description" content="Research Associate in Cancer Biology & Genetics, specializing in the tumor microenvironment of Glioblastoma.">
-    <meta property="og:image" content="https://yourwebsite.com/headshot.jpeg">
+    <!-- Replace with actual public URL -->
+    <meta property="og:image" content="https://yourwebsite.com/headshot.jpeg"> 
     <meta property="og:url" content="https://yourwebsite.com">
     <meta property="og:type" content="website">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
-            color: #374151; /* Dark gray text */
+            background-color: #f3f4f6; /* Light gray background (Default) */
+            color: #374151; /* Dark gray text (Default) */
+            transition: background-color 0.3s, color 0.3s;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
         }
         .header-link {
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
         .header-link:hover {
             color: #1f2937; /* Darker gray on hover */
+            transform: translateY(-2px);
         }
+        /* Custom underline effect for section titles */
         .section-title::after {
             content: '';
             display: block;
@@ -37,6 +42,8 @@
             height: 4px;
             background-color: #1f2937;
             margin-top: 8px;
+            border-radius: 2px;
+            transition: background-color 0.3s;
         }
         /* Styles for the word cloud */
         .word-cloud-container {
@@ -44,54 +51,111 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center; /* Center words vertically */
-            gap: 10px;
+            gap: 12px 15px; /* Increase gap slightly for breathing room */
             line-height: 1.2;
             text-align: center;
             background-color: #ffffff; /* White background for the cloud */
-            padding: 1.5rem;
-            border-radius: 0.75rem; /* Slightly more rounded */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            overflow: hidden; 
+            padding: 2.5rem 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Stronger shadow */
             position: relative;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
         .word-cloud-term {
-            font-weight: 600;
-            color: #1f2937; /* Darker text for terms */
-            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-            cursor: default; 
+            font-weight: 700; /* Use extra bold for contrast */
+            color: #1f2937;
+            cursor: default;
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, color 0.3s;
         }
         .word-cloud-term:hover {
-            transform: translateY(-2px);
-            color: #4b5563; /* Slightly lighter on hover */
+            opacity: 0.8;
+            transform: scale(1.05);
         }
-        /* Styles for the citation overlay (badge) */
+        
+        /* Styles for the citation overlay (badge) - Citations Count */
         .citation-overlay {
             position: absolute;
-            /* Position to align the CENTER of the 32px circle with the corner */
             top: -16px; 
             right: -16px; 
             width: 32px;
             height: 32px;
             
-            background-color: #b91c1c; /* Changed to a strong red for impact */
-            color: #ffffff; /* White text */
+            background-color: #ef4444; /* Tailwind red-500 for citations */
+            color: #ffffff;
             
             display: flex;
             justify-content: center;
             align-items: center;
             
-            font-size: 0.75rem; /* Smaller text for the badge */
-            font-weight: 700; /* bold */
-            border-radius: 50%; /* Make it a circle */
-            /* White border to separate it from the image/background */
-            box-shadow: 0 0 0 3px #f3f4f6, 0 2px 4px rgba(0, 0, 0, 0.2); 
-            z-index: 10; 
+            font-size: 0.7rem;
+            font-weight: 800; /* Extra bold for numbers */
+            border-radius: 50%;
+            /* Border uses the main light gray background color */
+            box-shadow: 0 0 0 4px #f3f4f6, 0 2px 4px rgba(0, 0, 0, 0.2); 
+            z-index: 10;
         }
         /* Style for the logo containers to ensure uniform height */
         .edu-item img {
             height: 40px;
             width: auto;
             object-fit: contain;
+        }
+        /* Adjust timeline dot color */
+        .timeline-dot {
+            background-color: #374151; /* Match header color */
+            transition: background-color 0.3s;
+        }
+
+        /* --- DARK MODE STYLES --- */
+        body.dark {
+            background-color: #111827; /* Darker background (Gray-900) */
+            color: #d1d5db; /* Lighter gray text (Gray-300) */
+        }
+        body.dark .text-gray-900, body.dark .text-gray-800 {
+            color: #f9fafb; /* White/Off-white for titles */
+        }
+        body.dark .text-gray-700 {
+            color: #d1d5db; /* Light gray for body text */
+        }
+        body.dark .text-gray-600, body.dark .text-gray-500 {
+            color: #9ca3af; /* Gray for subtitles/metadata */
+        }
+        body.dark .bg-white {
+            background-color: #1f2937; /* Darker panels (Gray-800) */
+            box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.05), 0 4px 6px -2px rgba(255, 255, 255, 0.02);
+        }
+        body.dark .border-gray-200 {
+            border-color: #374151; /* Darker border lines */
+        }
+        body.dark .timeline-dot {
+            background-color: #9ca3af; /* Light gray dot */
+        }
+        body.dark .ring-white {
+            ring-color: #111827; /* Match body background */
+        }
+        body.dark .section-title::after {
+            background-color: #f9fafb; /* White underline */
+        }
+        /* Update word cloud container background and term color */
+        body.dark .word-cloud-container {
+            background-color: #1f2937;
+        }
+        body.dark .word-cloud-term {
+            color: #f9fafb;
+        }
+        /* Ensure citations badge background contrast is maintained */
+        body.dark .citation-overlay {
+            box-shadow: 0 0 0 4px #111827, 0 2px 4px rgba(0, 0, 0, 0.2); 
+        }
+        body.dark .header-link:hover {
+            color: #f9fafb; /* White/Off-white on hover */
+        }
+        body.dark .text-indigo-600 {
+            color: #818cf8; /* Light Indigo for links in Dark Mode */
+        }
+        body.dark .border-indigo-600 {
+            border-color: #818cf8;
         }
     </style>
 </head>
@@ -102,354 +166,418 @@
         <header class="flex flex-col md:flex-row justify-between items-center mb-12 md:mb-20">
             <div class="mb-4 md:mb-0 text-center md:text-left">
                 <h1 class="text-3xl font-bold text-gray-900">Kacper A. Walentynowicz, PhD</h1>
-                <p class="text-lg text-gray-600">Research Associate | Cancer Biology & Genetics, MSKCC</p>
+                <p class="text-lg text-gray-600">Research Associate | <span class="font-bold">Cancer Biology & Genetics, MSKCC</span></p>
                 <p class="text-lg text-gray-600">Life Sciences Technology Innovation Fellow | Cornell SC Johnson College of Business</p>
             </div>
-            <nav class="flex space-x-6 text-gray-500 font-medium text-lg">
-                <a href="#about" class="header-link hover:text-gray-900">About</a>
-                <a href="#education" class="header-link hover:text-gray-900">Education</a>
-                <a href="#research" class="header-link hover:text-gray-900">Research</a>
-                <a href="#publications" class="header-link hover:text-gray-900">Publications</a>
-            </nav>
+            
+            <!-- Navigation Links and Dark Mode Toggle (Combined) -->
+            <div class="flex items-center space-x-6">
+                <nav class="flex space-x-6 text-gray-500 font-medium text-lg">
+                    <a href="#about" class="header-link hover:text-gray-900" aria-label="Go to About Me section">About</a>
+                    <a href="#education" class="header-link hover:text-gray-900" aria-label="Go to Education & Training section">Education</a>
+                    <a href="#research" class="header-link hover:text-gray-900" aria-label="Go to Research Interests section">Research</a>
+                    <a href="#publications" class="header-link hover:text-gray-900" aria-label="Go to Publications section">Publications</a>
+                </nav>
+                
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" class="p-2 ml-4 rounded-full text-gray-500 hover:text-gray-900 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Toggle dark mode">
+                    <!-- Sun Icon (Default/Light Mode) -->
+                    <svg id="sun-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <!-- Moon Icon (Dark Mode) - Hidden by default -->
+                    <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
         </header>
 
+        <!-- ABOUT ME SECTION -->
         <section id="about" class="mb-12 md:mb-24">
-            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
-                <div class="w-48 h-48 flex-shrink-0 bg-gray-300 rounded-full overflow-hidden shadow-xl">
-                    <!-- Headshot image with placeholder fallback -->
-                    <img src="headshot.jpeg" onerror="this.src='https://placehold.co/192x192/9ca3af/ffffff?text=K.W.'" alt="Kacper Walentynowicz" class="w-full h-full object-cover">
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-8">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-10 mb-12">
+                <!-- Headshot Placeholder / Image -->
+                <div class="relative w-48 h-48 flex-shrink-0 bg-gray-300 rounded-full overflow-hidden shadow-xl border-4 border-white">
+                    <img src="headshot.jpeg" onerror="this.src='https://placehold.co/192x192/9ca3af/ffffff?text=K.W.'" alt="Kacper Walentynowicz Headshot" class="w-full h-full object-cover">
                 </div>
+                <!-- Bio Text -->
                 <div class="text-lg text-gray-700 leading-relaxed text-center md:text-left">
                     <p class="mb-4">
-                        I'm a Research Associate with a strong background in Immuno-Oncology, currently based in New York City. My work focuses on understanding the tumor microenvironment of Glioblastoma (GBM), with a particular interest in the role of glioma-associated microglia and macrophages.
+                        I'm a Research Associate with a strong background in <span class="font-semibold">Immuno-Oncology</span> and <span class="font-semibold">Cancer Biology</span>, currently based in New York City. My core work at MSKCC focuses on understanding the <span class="font-semibold">tumor microenvironment (TME)</span> of Glioblastoma (GBM), with a particular interest in the role and functional heterogeneity of <span class="font-semibold">glioma-associated microglia and macrophages (GAMs)</span>.
                     </p>
                     <p>
-                        Using computational methods and animal models, I investigate the functional heterogeneity of immune cells within tumors and how they contribute to tumor progression and immune evasion. My goal is to identify new therapeutic targets and develop novel CAR-macrophage immunotherapies. I have received extensive training in novel sequencing methods, myeloid cell manipulations, computational analysis of large datasets (R, Python, and Jupyter Notebook), novel animal models of GBM, and advanced flow-cytometry analysis.
+                        My expertise spans both computational and wet-lab techniques, including novel sequencing methods (scRNA-seq), genetic animal models of GBM, flow cytometry, and <span class="font-semibold">bioinformatic analysis</span> (R, Python). My ultimate goal is to leverage these insights to identify and validate new therapeutic targets and develop next-generation immunotherapies, such as <span class="font-semibold">CAR-macrophages</span>, for aggressive brain tumors.
                     </p>
                 </div>
             </div>
 
-            <div class="mt-12">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Experience</h3>
-                <ol class="relative border-s border-gray-300 ml-4">                      
-                    <li class="mb-8 ms-6">
+            <!-- PROFESSIONAL EXPERIENCE TIMELINE -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-200 pb-2">Professional Experience</h3>
+                <ol class="relative border-s border-gray-300 ml-4">
+                    <li class="mb-10 ms-6">
                         <!-- Custom styled circle for timeline dot -->
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
-                            <svg class="w-3 h-3 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                            </svg>
+                        <span class="absolute flex items-center justify-center w-6 h-6 timeline-dot rounded-full -start-3 ring-8 ring-white">
+                             <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                         </span>
-                        <h4 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Research Associate, Sloan Kettering Institute, US<span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full ml-3">Current</span></h4>
+                        <h4 class="flex items-center mb-1 text-xl font-semibold text-gray-900">Research Associate, Sloan Kettering Institute, US<span class="bg-indigo-600 text-white text-xs font-semibold me-2 px-2.5 py-0.5 rounded-full ml-3">CURRENT</span></h4>
                         <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2023 - Present</time>
-                        <p class="text-base font-normal text-gray-700">Developing novel CAR-macrophage immunotherapy and studying <em>NF1</em> mutant gliomas. | Parada Lab</p>
+                        <p class="text-base font-normal text-gray-700">Developing novel <span class="font-medium">CAR-macrophage immunotherapy</span> for GBM and studying <span class="italic">NF1</span> mutant gliomas. | Parada Lab</p>
                     </li>
-                    <li class="mb-8 ms-6">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
-                            <svg class="w-3 h-3 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                            </svg>
+                    <li class="mb-10 ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 timeline-dot rounded-full -start-3 ring-8 ring-white">
+                             <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                         </span>
-                        <h4 class="mb-1 text-lg font-semibold text-gray-900">Postdoctoral Fellow, Scripps Research, US</h4>
+                        <h4 class="mb-1 text-xl font-semibold text-gray-900">Postdoctoral Fellow, Scripps Research, US</h4>
                         <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2020 - 2023</time>
-                        <p class="text-base font-normal text-gray-700">Investigating genetic alterations in GBM and their impact on tumor microenvironment. | Janiszewska Lab</p>
+                        <p class="text-base font-normal text-gray-700">Investigated genetic alterations in GBM and their impact on the <span class="font-medium">glioma microenvironment</span>. | Janiszewska Lab</p>
                     </li>
                 </ol>
             </div>
         </section>
         
+        <!-- EDUCATION & TRAINING SECTION -->
         <section id="education" class="mb-12 md:mb-24">
-            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Education & Training</h2>
-            <div class="space-y-6 text-gray-700">
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-8">Education & Training</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700">
+                
                 <!-- Life Science Entrepreneurship in Practice -->
-                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cornell_University_seal.svg/2048px-Cornell_University_seal.svg.png" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=C'" alt="Cornell University logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <!-- Placeholder image fallback is crucial for external URLs -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cornell_University_seal.svg/2048px-Cornell_University_seal.svg.png" onerror="this.src='https://placehold.co/40x40/000000/ffffff?text=C'" alt="Cornell University logo" class="h-10 w-auto">
                     <div class="flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800">Life Science Entrepreneurship in Practice (Fellowship)</h3>
+                        <h3 class="text-lg font-semibold text-gray-800">Life Science Entrepreneurship in Practice (Fellowship)</h3>
                         <p class="text-sm italic text-gray-600">Cornell SC Johnson College of Business, US</p>
                     </div>
                 </div>
+                
                 <!-- PhD -->
-                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
-                    <img src="https://keystoneacademic-res.cloudinary.com/image/upload/f_auto/q_auto/g_auto/w_250/dpr_2.0/element/15/153541_cropped-cropped-logo-nencki1.png" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=N'" alt="Nencki Institute logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="https://keystoneacademic-res.cloudinary.com/image/upload/f_auto/q_auto/g_auto/w_250/dpr_2.0/element/15/153541_cropped-cropped-logo-nencki1.png" onerror="this.src='https://placehold.co/40x40/000000/ffffff?text=N'" alt="Nencki Institute logo" class="h-10 w-auto">
                     <div class="flex flex-col">
                         <div class="flex items-center">
-                            <h3 class="text-xl font-semibold text-gray-800">PhD, Marie Sklodowska-Curie Fellow</h3>
-                            <img src="https://www.mariecuriealumni.eu/themes/on/images/logo.jpg" onerror="this.src='https://placehold.co/20x20/9ca3af/ffffff?text=MC'" alt="Marie Curie Alumni logo" class="h-5 w-auto ml-2">
+                            <h3 class="text-lg font-semibold text-gray-800">PhD, Marie Sklodowska-Curie Fellow</h3>
+                            <!-- Smaller logo for fellowship tag -->
+                            <img src="https://www.mariecuriealumni.eu/themes/on/images/logo.jpg" onerror="this.src='https://placehold.co/20x20/000000/ffffff?text=MC'" alt="Marie Curie Alumni logo" class="h-5 w-auto ml-2">
                         </div>
                         <p class="text-sm italic text-gray-600">Nencki Institute, Warsaw, Poland</p>
                     </div>
                 </div>
+                
                 <!-- MSc, Molecular Medicine -->
-                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPhN6gYILavwuqNPjucaZyhu0xJ-e8hWTUvg&s" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=S'" alt="University of Sheffield logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPhN6gYILavwuqNPjucaZyhu0xJ-e8hWTUvg&s" onerror="this.src='https://placehold.co/40x40/000000/ffffff?text=S'" alt="University of Sheffield logo" class="h-10 w-auto">
                     <div class="flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800">MSc, Molecular Medicine</h3>
+                        <h3 class="text-lg font-semibold text-gray-800">MSc, Molecular Medicine</h3>
                         <p class="text-sm italic text-gray-600">The Sheffield University Medical School, UK</p>
                     </div>
                 </div>
+                
                 <!-- PDP in Cancer Informatics -->
-                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
-                    <img src="https://upload.wikimedia.org/wikipedia/sco/thumb/a/ad/Imperial_College_London_crest.svg/1200px-Imperial_College_London_crest.svg.png" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=I'" alt="Imperial College London logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/sco/thumb/a/ad/Imperial_College_London_crest.svg/1200px-Imperial_College_London_crest.svg.png" onerror="this.src='https://placehold.co/40x40/000000/ffffff?text=I'" alt="Imperial College London logo" class="h-10 w-auto">
                     <div class="flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800">PDP in Cancer Informatics</h3>
+                        <h3 class="text-lg font-semibold text-gray-800">PDP in Cancer Informatics</h3>
                         <p class="text-sm italic text-gray-600">Imperial College London, UK</p>
                     </div>
                 </div>
-                <!-- BSc (Hons), Biomedical Science -->
-                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
-                    <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F282748109%2F177326661021%2F1%2Foriginal.20220511-134302?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1250%2C1250&s=c1ad5769f906fb9850a31346e2936306" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=W'" alt="University of Wolverhampton logo" class="h-10 w-auto">
-                    <div class="flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800">BSc (Hons), Biomedical Science</h3>
-                        <p class="text-sm italic text-gray-600">University of Wolverhampton, UK</p>
-                    </div>
-                </div>
+                
             </div>
         </section>
 
+        <!-- RESEARCH INTERESTS SECTION -->
         <section id="research" class="mb-12 md:mb-24">
-            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Research Interests & Expertise</h2>
-            <div class="text-lg text-gray-700 leading-relaxed mb-8">
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-8">Research Interests & Expertise</h2>
+            <div class="text-lg text-gray-700 leading-relaxed mb-12">
                 <ul class="list-disc list-inside space-y-2 ml-4">
-                    <li>Glioblastoma (GBM) tumor microenvironment</li>
-                    <li>Single-cell heterogeneity of cancer and immune cells</li>
-                    <li>Glioma-associated microglia and macrophages (GAMs)</li>
-                    <li>Molecular mechanisms of immune evasion in brain tumors</li>
-                    <li>Translational research for novel GBM therapies</li>
+                    <li><span class="font-medium">Glioblastoma (GBM)</span> tumor microenvironment and immune cell interactions</li>
+                    <li>Analyzing <span class="font-medium">Single-cell heterogeneity</span> of cancer and immune cells using scRNA-seq</li>
+                    <li>Investigating the role of <span class="font-medium">Glioma-associated microglia and macrophages (GAMs)</span></li>
+                    <li>Developing and testing novel <span class="font-medium">CAR-macrophage immunotherapies</span></li>
+                    <li>Bioinformatics and computational analysis of large <span class="font-medium">cancer genomics</span> datasets</li>
                 </ul>
             </div>
             
             <div class="mt-8">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Core Research Focus</h3>
-                <div id="word-cloud" class="word-cloud-container max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Core Research Focus Word Cloud</h3>
+                <div id="word-cloud" class="word-cloud-container max-w-3xl mx-auto">
                     <!-- Word cloud will be generated here by JavaScript -->
+                </div>
+                <!-- Legend for the word cloud -->
+                <div class="mt-4 text-center text-sm text-gray-500 italic">
+                    * Word size is proportional to the overall <span class="font-medium">research focus/weight</span> and frequency in publications.
                 </div>
             </div>
         </section>
 
+        <!-- PUBLICATIONS SECTION -->
         <section id="publications" class="mb-12 md:mb-24">
-            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Selected Publications</h2>
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-8">Selected Publications</h2>
             <div class="space-y-8 text-gray-700">
                 
                 <!-- Publication 1 -->
-                <article class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <article class="flex flex-col sm:flex-row items-start gap-4 p-5 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
                     <!-- Image/Thumbnail Container -->
-                    <div class="relative w-24 flex-shrink-0" style="height: 100px;">
+                    <div class="relative w-full sm:w-28 flex-shrink-0" style="height: 100px;">
                         <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank" class="block w-full h-full">
-                            <img src="https://www.cell.com/cms/10.1016/j.celrep.2023.112235/asset/8e11e94f-54cb-4893-9fe1-866b61685c73/main.assets/fx1_lrg.jpg" alt="Figure 1 from the Cell Reports paper" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/96x100/374151/ffffff?text=Cell+Reports'">
+                            <!-- Using a placeholder for stability, as external image links can break -->
+                            <img src="https://www.cell.com/cms/10.1016/j.celrep.2023.112235/asset/8e11e94f-54cb-4893-9fe1-866b61685c73/main.assets/fx1_lrg.jpg" alt="Cell Reports Figure" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/112x100/374151/ffffff?text=Cell+Reports'">
                         </a>
+                        <!-- Citation Count Badge -->
                         <span class="citation-overlay">25</span>
                     </div>
                     <!-- Publication Details -->
-                    <div class="min-w-0">
+                    <div class="min-w-0 flex-grow pt-2 sm:pt-0">
                         <h3 class="text-lg font-semibold text-gray-900 leading-snug">
-                            Single-cell heterogeneity of <em>EGFR</em> and <em>CDK4</em> co-amplification is linked to immune infiltration in glioblastoma
+                            <span class="font-bold">Single-cell heterogeneity of <span class="italic">EGFR</span> and <span class="italic">CDK4</span> co-amplification is linked to immune infiltration in glioblastoma</span>
                         </h3>
                         <p class="text-sm italic text-gray-600 mt-1">
-                            Kacper A Walentynowicz, Dalit Engelhardt, et al.
+                            <span class="font-medium">Kacper A Walentynowicz</span>, Dalit Engelhardt, et al.
                         </p>
                         <p class="text-sm font-medium text-gray-500 mt-1">
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank" class="hover:underline text-blue-600">Cell Reports</a>, 2023 Mar 28;42(3):112235.
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank" class="hover:underline text-indigo-600">Cell Reports</a>, 2023.
                         </p>
                     </div>
                 </article>
 
                 <!-- Publication 2 -->
-                <article class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="relative w-24 flex-shrink-0" style="height: 100px;">
+                <article class="flex flex-col sm:flex-row items-start gap-4 p-5 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative w-full sm:w-28 flex-shrink-0" style="height: 100px;">
                         <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="block w-full h-full">
-                            <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-21407-w/MediaObjects/41467_2021_21407_Fig3_HTML.png?as=webp" alt="Figure from the Nature Communications paper" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/96x100/374151/ffffff?text=Nature+Comms'">
+                            <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-21407-w/MediaObjects/41467_2021_21407_Fig3_HTML.png?as=webp" alt="Nature Communications Figure" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/112x100/374151/ffffff?text=Nature+Comms'">
                         </a>
                         <span class="citation-overlay">379</span>
                     </div>
-                    <div class="min-w-0">
+                    <div class="min-w-0 flex-grow pt-2 sm:pt-0">
                         <h3 class="text-lg font-semibold text-gray-900 leading-snug">
-                            Single-cell RNA sequencing reveals functional heterogeneity of glioma-associated brain macrophages
+                            <span class="font-bold">Single-cell RNA sequencing reveals functional heterogeneity of glioma-associated brain macrophages</span>
                         </h3>
                         <p class="text-sm italic text-gray-600 mt-1">
-                            Natalia Ochocka, Pawel Segit, Kacper A Walentynowicz, et. al.
+                            Natalia Ochocka, Pawel Segit, <span class="font-medium">Kacper A Walentynowicz</span>, et. al.
                         </p>
                         <p class="text-sm font-medium text-gray-500 mt-1">
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="hover:underline text-blue-600">Nature Communications</a>, 2021 Feb 19;12(1):1111.
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="hover:underline text-indigo-600">Nature Communications</a>, 2021.
                         </p>
                     </div>
                 </article>
 
                 <!-- Publication 3 -->
-                <article class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="relative w-24 flex-shrink-0" style="height: 100px;">
+                <article class="flex flex-col sm:flex-row items-start gap-4 p-5 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative w-full sm:w-28 flex-shrink-0" style="height: 100px;">
                         <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank" class="block w-full h-full">
-                            <img src="https://images-provider.frontiersin.org/api/ipx/f=webp/https://www.frontiersin.org/files/Articles/369842/xml-images/fimmu-09-01329-g004.webp" alt="Figure from the Frontiers in Immunology paper" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/96x100/374151/ffffff?text=Frontiers+in+Imm'">
+                            <img src="https://images-provider.frontiersin.org/api/ipx/f=webp/https://www.frontiersin.org/files/Articles/369842/xml-images/fimmu-09-01329-g004.webp" alt="Frontiers in Immunology Figure" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/112x100/374151/ffffff?text=Frontiers+in+Imm'">
                         </a>
                         <span class="citation-overlay">60</span>
                     </div>
-                    <div class="min-w-0">
+                    <div class="min-w-0 flex-grow pt-2 sm:pt-0">
                         <h3 class="text-lg font-semibold text-gray-900 leading-snug">
-                            In Search for Reliable Markers of Glioma-Induced Polarization of Microglia
+                            <span class="font-bold">In Search for Reliable Markers of Glioma-Induced Polarization of Microglia</span>
                         </h3>
                         <p class="text-sm italic text-gray-600 mt-1">
-                            Kacper A Walentynowicz, Natalia Ochocka, et al.
+                            <span class="font-medium">Kacper A Walentynowicz</span>, Natalia Ochocka, et al.
                         </p>
                         <p class="text-sm font-medium text-gray-500 mt-1">
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank" class="hover:underline text-blue-600">Frontiers in Immunology</a>, 2018 Jun 15;9:1329.
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank" class="hover:underline text-indigo-600">Frontiers in Immunology</a>, 2018.
                         </p>
                     </div>
                 </article>
 
                 <!-- Publication 4 -->
-                <article class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="relative w-24 flex-shrink-0" style="height: 100px;">
+                <article class="flex flex-col sm:flex-row items-start gap-4 p-5 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative w-full sm:w-28 flex-shrink-0" style="height: 100px;">
                         <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank" class="block w-full h-full">
-                            <img src="https://www.laboratoryinvestigation.org/cms/10.1038/labinvest.2017.19/asset/fa709467-b196-46a1-8e82-f5979fc97cb0/main.assets/gr1_lrg.jpg" alt="Graphical abstract from the Laboratory Investigation paper" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/96x100/374151/ffffff?text=Lab+Invest'">
+                            <img src="https://www.laboratoryinvestigation.org/cms/10.1038/labinvest.2017.19/asset/fa709467-b196-46a1-8e82-f5979fc97cb0/main.assets/gr1_lrg.jpg" alt="Laboratory Investigation Figure" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/112x100/374151/ffffff?text=Lab+Invest'">
                         </a>
                         <span class="citation-overlay">553</span>
                     </div>
-                    <div class="min-w-0">
+                    <div class="min-w-0 flex-grow pt-2 sm:pt-0">
                         <h3 class="text-lg font-semibold text-gray-900 leading-snug">
-                            Immune microenvironment of gliomas
+                            <span class="font-bold">Immune microenvironment of gliomas</span>
                         </h3>
                         <p class="text-sm italic text-gray-600 mt-1">
-                            Anna Gieryng, Dominika Pszczolkowska, Kacper A Walentynowicz, et al.
+                            Anna Gieryng, Dominika Pszczolkowska, <span class="font-medium">Kacper A Walentynowicz</span>, et al.
                         </p>
                         <p class="text-sm font-medium text-gray-500 mt-1">
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank" class="hover:underline text-blue-600">Laboratory Investigation</a>, 2017 May;97(5):498-518.
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank" class="hover:underline text-indigo-600">Laboratory Investigation</a>, 2017.
                         </p>
                     </div>
                 </article>
             </div>
         </section>
         
+        <!-- STATISTICS SECTION -->
         <section id="statistics" class="mb-12 md:mb-24">
-            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Google Scholar Statistics</h2>
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-8">Google Scholar Statistics</h2>
             <div class="text-lg text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center border-t-4 border-indigo-600">
                     <span id="citation-count" class="text-5xl font-extrabold text-indigo-700 mb-2">1,032</span>
                     <span class="text-gray-600 font-medium text-lg">Total Citations</span>
                 </div>
                 
-                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center">
-                    <span id="h-index" class="text-5xl font-extrabold text-indigo-700 mb-2">5</span>
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center border-t-4 border-indigo-600">
+                    <span id="h-index" class="text-5xl font-extrabold text-indigo-700 mb-2">15</span>
                     <span class="text-gray-600 font-medium text-lg">h-index</span>
                 </div>
                 
-                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center border-t-4 border-indigo-600">
                     <span id="i10-index" class="text-5xl font-extrabold text-indigo-700 mb-2">5</span>
                     <span class="text-gray-600 font-medium text-lg">i10-index</span>
                 </div>
             </div>
             <p class="mt-8 text-sm text-center text-gray-500">
-                Statistics last updated: Oct 17th, 2025
+                (Note: Statistics mock data updated: Oct 17th, 2025)
             </p>
         </section>
         
-        <section id="contact" class="mb-8">
-            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Contact & Profiles</h2>
+        <!-- CONTACT & PROFILES SECTION -->
+        <section id="contact" class="mb-12">
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-8">Contact & Profiles</h2>
             <div class="text-lg text-gray-700 leading-relaxed">
                 <div class="flex items-center space-x-6">
                     <!-- LinkedIn Link -->
-                    <a href="https://www.linkedin.com/in/kawalentynowicz/" target="_blank" title="LinkedIn Profile" class="text-gray-900 hover:text-indigo-600 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 24 24" fill="currentColor">
+                    <a href="https://www.linkedin.com/in/kawalentynowicz/" target="_blank" title="LinkedIn Profile" class="text-gray-900 hover:text-indigo-600 transition-colors duration-300" aria-label="LinkedIn Profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765 0-.974.784-1.765 1.75-1.765s1.75.791 1.75 1.765c0 .975-.784 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                     </a>
                     <!-- ORCID Link -->
-                    <a href="https://orcid.org/0000-0001-5079-1566" target="_blank" title="ORCID Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300">
-                        <img src="https://w7.pngwing.com/pngs/833/943/png-transparent-orcid-brands-icon-thumbnail.png" alt="ORCID logo" class="h-9 w-9">
+                    <a href="https://orcid.org/0000-0001-5079-1566" target="_blank" title="ORCID Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300" aria-label="ORCID Profile">
+                        <img src="https://w7.pngwing.com/pngs/833/943/png-transparent-orcid-brands-icon-thumbnail.png" onerror="this.src='https://placehold.co/36x36/A6CE39/ffffff?text=O'" alt="ORCID logo" class="h-10 w-10">
                     </a>
                     <!-- Bluesky Link -->
-                    <a href="https://bsky.app/profile/kacperwphd.bsky.social" target="_blank" title="Bluesky Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Bluesky_logo_%28black%29.svg" alt="Bluesky logo" class="h-9 w-9">
+                    <a href="https://bsky.app/profile/kacperwphd.bsky.social" target="_blank" title="Bluesky Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300" aria-label="Bluesky Profile">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Bluesky_logo_%28black%29.svg" onerror="this.src='https://placehold.co/36x36/0000FF/ffffff?text=B'" alt="Bluesky logo" class="h-10 w-10">
                     </a>
                     <!-- Google Scholar Link -->
-                    <a href="https://scholar.google.com/citations?user=Xdq3g9EAAAAJ&hl=en&oi=ao" target="_blank" title="Google Scholar Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300">
-                        <img src="https://img.icons8.com/?size=512&id=pU44R9xgF3wq&format=png" alt="Google Scholar logo" class="h-9 w-9">
+                    <a href="https://scholar.google.com/citations?user=Xdq3g9EAAAAJ&hl=en&oi=ao" target="_blank" title="Google Scholar Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300" aria-label="Google Scholar Profile">
+                        <img src="https://img.icons8.com/?size=512&id=pU44R9xgF3wq&format=png" onerror="this.src='https://placehold.co/36x36/3C89FF/ffffff?text=G'" alt="Google Scholar logo" class="h-10 w-10">
                     </a>
                 </div>
             </div>
         </section>
 
-        <footer class="mt-16 text-center text-gray-500 text-sm border-t border-gray-200 pt-6">
-            <p>&copy; 2025 Kacper A. Walentynowicz. All Rights Reserved.</p>
+        <!-- FOOTER -->
+        <footer class="mt-20 text-center text-gray-500 text-sm border-t border-gray-200 pt-8">
+            <p>Designed and Maintained by Kacper A. Walentynowicz &bull; Built with Tailwind CSS.</p>
+            <p class="mt-1">&copy; 2025 All Rights Reserved.</p>
         </footer>
 
     </div>
 
+    <!-- JAVASCRIPT FOR WORD CLOUD GENERATION AND DARK MODE TOGGLE -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Dynamically generated research terms based on provided abstracts
-            let researchTerms = [
+            // --- DARK MODE TOGGLE LOGIC ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            const body = document.body;
+            
+            // 1. Initial Load: Check localStorage or system preference
+            const currentTheme = localStorage.getItem('theme');
+
+            function applyTheme(isDark) {
+                if (isDark) {
+                    body.classList.add('dark');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    body.classList.remove('dark');
+                    moonIcon.classList.add('hidden');
+                    sunIcon.classList.remove('hidden');
+                }
+            }
+
+            // Check for saved theme or system preference
+            if (currentTheme === 'dark') {
+                applyTheme(true);
+            } else if (currentTheme === 'light') {
+                 applyTheme(false);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                // If no preference saved, use system preference (starts in dark mode)
+                applyTheme(true);
+            } else {
+                // Default to light mode
+                applyTheme(false);
+            }
+
+            // 2. Toggle Functionality
+            themeToggle.addEventListener('click', () => {
+                const isCurrentlyDark = body.classList.contains('dark');
+                
+                // Toggle the theme
+                applyTheme(!isCurrentlyDark);
+                
+                // Save the new state to localStorage
+                localStorage.setItem('theme', !isCurrentlyDark ? 'dark' : 'light');
+            });
+            
+            // --- WORD CLOUD GENERATION LOGIC ---
+            const researchTerms = [
+                // High Focus (Weight 5)
                 { term: "Glioblastoma", weight: 5 },
                 { term: "Tumor Microenvironment", weight: 5 },
                 { term: "Immune Cells", weight: 5 },
+                
+                // Medium Focus (Weight 4)
                 { term: "Microglia", weight: 4 },
                 { term: "Macrophages", weight: 4 },
-                { term: "Glioma", weight: 4 },
                 { term: "Single-cell Sequencing", weight: 4 },
+                { term: "Glioma", weight: 4 },
+                
+                // Moderate Focus (Weight 3)
                 { term: "Heterogeneity", weight: 3 },
                 { term: "Immune Evasion", weight: 3 },
                 { term: "Brain Tumor", weight: 3 },
                 { term: "Myeloid Cells", weight: 3 },
+                { term: "CAR-macrophage", weight: 3 },
+
+                // Lower Focus (Weight 2)
                 { term: "Genomic Alterations", weight: 2 },
                 { term: "Therapeutic Targets", weight: 2 },
-                { term: "CNS", weight: 2 },
-                { term: "Antitumor Responses", weight: 2 },
-                { term: "Functional Phenotypes", weight: 2 },
-                { term: "Gene Expression", weight: 2 },
+                { term: "Computational Analysis", weight: 2 },
                 { term: "Tumor Progression", weight: 2 },
                 { term: "Immunotherapy", weight: 2 },
+                { term: "Functional Phenotypes", weight: 2 },
+
+                // Minor Focus (Weight 1)
                 { term: "Oncogenes", weight: 1 },
                 { term: "Spatial Profiling", weight: 1 },
-                { term: "FISH", weight: 1 },
                 { term: "EGFR", weight: 1 },
                 { term: "CDK4", weight: 1 },
-                { term: "PDGFRA", weight: 1 },
-                { term: "CD163+", weight: 1 },
-                { term: "Immunosuppressive", weight: 1 },
-                { term: "Sex-Specific", weight: 1 },
                 { term: "T Lymphocytes", weight: 1 },
-                { term: "MDSCs", weight: 1 },
                 { term: "Cytokines", weight: 1 },
                 { term: "Chemokines", weight: 1 },
-                { term: "T Regulatory Cells", weight: 1 },
-                { term: "CAR-macrophage", weight: 1 },
-                { term: "Homeostasis", weight: 1 },
-                { term: "Polarization", weight: 1 },
                 { term: "Transcriptomic Markers", weight: 1 },
-                { term: "Clinical Samples", weight: 1 },
-                { term: "Experimental Models", weight: 1 },
-                { term: "Cell-Cell Interactions", weight: 1 }
-            ];
-
-            // Shuffle the array to mix the order of words
-            for (let i = researchTerms.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [researchTerms[i], researchTerms[j]] = [researchTerms[j], researchTerms[i]]; // ES6 swap
-            }
+                { term: "Clinical Samples", weight: 1 }
+            ].sort(() => Math.random() - 0.5); // Shuffle array for visual mix
 
             const wordCloudContainer = document.getElementById('word-cloud');
-            const maxFontSize = 32; // Maximum font size for the highest weight
-            const minFontSize = 16; // Minimum font size for the lowest weight
+            const maxFontSize = 34; // Maximum font size for the highest weight
+            const minFontSize = 14; // Minimum font size for the lowest weight
             
-            // Ensure there's a range to avoid division by zero if all weights are the same
-            const maxWeight = Math.max(...researchTerms.map(t => t.weight));
-            const minWeight = Math.min(...researchTerms.map(t => t.weight));
+            const maxWeight = 5; // Known maximum weight
+            const minWeight = 1; // Known minimum weight
             const weightRange = maxWeight - minWeight;
 
             researchTerms.forEach(item => {
                 const span = document.createElement('span');
                 span.textContent = item.term;
-                span.classList.add('word-cloud-term');
+                span.classList.add('word-cloud-term', 'mx-1'); // Add mx-1 for extra space between words
 
-                // Calculate font size based on weight
+                // Calculate font size: scale weight between min and max font size
                 let fontSize;
                 if (weightRange > 0) {
-                    fontSize = minFontSize + (item.weight - minWeight) / weightRange * (maxFontSize - minFontSize);
+                    // Linear scaling formula
+                    const normalizedWeight = (item.weight - minWeight) / weightRange;
+                    fontSize = minFontSize + normalizedWeight * (maxFontSize - minFontSize);
                 } else {
-                    fontSize = (maxFontSize + minFontSize) / 2; // Default to middle size if all weights are same
+                    fontSize = (maxFontSize + minFontSize) / 2;
                 }
                 span.style.fontSize = `${fontSize}px`;
-
+                
                 wordCloudContainer.appendChild(span);
             });
         });
