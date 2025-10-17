@@ -49,34 +49,22 @@
             text-align: center;
             background-color: #ffffff; /* White background for the cloud */
             padding: 1.5rem;
-            /* Reverted to standard rounded corners */
-            border-radius: 0.5rem; 
+            border-radius: 0.75rem; /* Slightly more rounded */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            /* Removed explicit width/height to allow content to dictate size within max-w-prose */
-            overflow: hidden; /* Hide content outside the shape */
+            overflow: hidden; 
             position: relative;
         }
         .word-cloud-term {
             font-weight: 600;
             color: #1f2937; /* Darker text for terms */
             transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-            cursor: default; /* Indicate it's not clickable */
+            cursor: default; 
         }
         .word-cloud-term:hover {
             transform: translateY(-2px);
             color: #4b5563; /* Slightly lighter on hover */
         }
-        /* Styles for the citation overlay */
-        .publication-image-wrapper {
-            position: relative;
-            width: 96px; /* w-24 */
-            height: auto; 
-            flex-shrink: 0;
-            border-radius: 0.5rem; /* rounded-md */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            overflow: visible; /* CRITICAL: Allows the badge to stick out of the boundary */
-        }
-        /* New Circle Badge Styling */
+        /* Styles for the citation overlay (badge) */
         .citation-overlay {
             position: absolute;
             /* Position to align the CENTER of the 32px circle with the corner */
@@ -85,18 +73,25 @@
             width: 32px;
             height: 32px;
             
-            background-color: #1f2937; /* Dark gray for high contrast */
+            background-color: #b91c1c; /* Changed to a strong red for impact */
             color: #ffffff; /* White text */
             
             display: flex;
             justify-content: center;
             align-items: center;
             
-            font-size: 0.875rem; /* text-sm */
+            font-size: 0.75rem; /* Smaller text for the badge */
             font-weight: 700; /* bold */
             border-radius: 50%; /* Make it a circle */
-            box-shadow: 0 0 0 3px #f3f4f6, 0 2px 4px rgba(0, 0, 0, 0.2); /* White border to separate it from the image/background */
+            /* White border to separate it from the image/background */
+            box-shadow: 0 0 0 3px #f3f4f6, 0 2px 4px rgba(0, 0, 0, 0.2); 
             z-index: 10; 
+        }
+        /* Style for the logo containers to ensure uniform height */
+        .edu-item img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
     </style>
 </head>
@@ -111,46 +106,47 @@
                 <p class="text-lg text-gray-600">Life Sciences Technology Innovation Fellow | Cornell SC Johnson College of Business</p>
             </div>
             <nav class="flex space-x-6 text-gray-500 font-medium text-lg">
-                <a href="#about" class="header-link">About</a>
-                <a href="#education" class="header-link">Education</a>
-                <a href="#research" class="header-link">Research</a>
-                <a href="#publications" class="header-link">Publications</a>
-                <!-- Removed Contact link here -->
+                <a href="#about" class="header-link hover:text-gray-900">About</a>
+                <a href="#education" class="header-link hover:text-gray-900">Education</a>
+                <a href="#research" class="header-link hover:text-gray-900">Research</a>
+                <a href="#publications" class="header-link hover:text-gray-900">Publications</a>
             </nav>
         </header>
 
         <section id="about" class="mb-12 md:mb-24">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">About Me</h2>
             <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
-                <div class="w-48 h-48 flex-shrink-0 bg-gray-300 rounded-full overflow-hidden shadow-lg">
+                <div class="w-48 h-48 flex-shrink-0 bg-gray-300 rounded-full overflow-hidden shadow-xl">
+                    <!-- Headshot image with placeholder fallback -->
                     <img src="headshot.jpeg" onerror="this.src='https://placehold.co/192x192/9ca3af/ffffff?text=K.W.'" alt="Kacper Walentynowicz" class="w-full h-full object-cover">
                 </div>
                 <div class="text-lg text-gray-700 leading-relaxed text-center md:text-left">
                     <p class="mb-4">
-                        I'm a Research Associate with a strong background in Immuno-Oncology, currently based in New York City. My work focuses on understanding the tumor microenvironment of Glioblastoma (GBM), with a particular interest in the role of glioma-associated microglia and macrophages.
+                        I'm a Research Associate with a strong background in **Immuno-Oncology**, currently based in New York City. My work focuses on understanding the **tumor microenvironment of Glioblastoma (GBM)**, with a particular interest in the role of glioma-associated microglia and macrophages.
                     </p>
                     <p>
-                        Using computational methods and animal models, I investigate the functional heterogeneity of immune cells within tumors and how they contribute to tumor progression and immune evasion. My goal is to identify new therapeutic targets and develop novel CAR-macrophage immunotherapies. I have received extensive training in novel sequencing methods, myeloid cell manipulations, computational analysis of large datasets (R, Python, and Jupyter Notebook), novel animal models of GBM, and advanced flow-cytometry analysis.
+                        Using computational methods and animal models, I investigate the functional **heterogeneity of immune cells** within tumors and how they contribute to tumor progression and immune evasion. My goal is to identify new therapeutic targets and develop novel **CAR-macrophage immunotherapies**. I have received extensive training in novel sequencing methods, myeloid cell manipulations, computational analysis of large datasets (R, Python, and Jupyter Notebook), novel animal models of GBM, and advanced flow-cytometry analysis.
                     </p>
                 </div>
             </div>
 
             <div class="mt-12">
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Experience</h3>
-                <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-4">                   
+                <ol class="relative border-s border-gray-300 ml-4">                      
                     <li class="mb-8 ms-6">
+                        <!-- Custom styled circle for timeline dot -->
                         <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
-                            <svg class="w-2.5 h-2.5 text-blue-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-3 h-3 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                             </svg>
                         </span>
-                        <h4 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Research Associate, Sloan Kettering Institute, US<span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded ml-3">Current</span></h4>
+                        <h4 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Research Associate, Sloan Kettering Institute, US<span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full ml-3">Current</span></h4>
                         <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2023 - Present</time>
                         <p class="text-base font-normal text-gray-700">Developing novel CAR-macrophage immunotherapy and studying <em>NF1</em> mutant gliomas. | Parada Lab</p>
                     </li>
                     <li class="mb-8 ms-6">
                         <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
-                            <svg class="w-2.5 h-2.5 text-blue-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-3 h-3 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                             </svg>
                         </span>
@@ -163,47 +159,46 @@
         </section>
         
         <section id="education" class="mb-12 md:mb-24">
-            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Education</h2>
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Education & Training</h2>
             <div class="space-y-6 text-gray-700">
                 <!-- Life Science Entrepreneurship in Practice -->
-                <div class="edu-item flex items-center space-x-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cornell_University_seal.svg/2048px-Cornell_University_seal.svg.png" alt="Cornell University logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cornell_University_seal.svg/2048px-Cornell_University_seal.svg.png" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=C'" alt="Cornell University logo" class="h-10 w-auto">
                     <div class="flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800">Life Science Entrepreneurship in Practice</h3>
+                        <h3 class="text-xl font-semibold text-gray-800">Life Science Entrepreneurship in Practice (Fellowship)</h3>
                         <p class="text-sm italic text-gray-600">Cornell SC Johnson College of Business, US</p>
                     </div>
                 </div>
                 <!-- PhD -->
-                <div class="edu-item flex items-center space-x-4">
-                    <img src="https://keystoneacademic-res.cloudinary.com/image/upload/f_auto/q_auto/g_auto/w_250/dpr_2.0/element/15/153541_cropped-cropped-logo-nencki1.png" alt="Nencki Institute logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
+                    <img src="https://keystoneacademic-res.cloudinary.com/image/upload/f_auto/q_auto/g_auto/w_250/dpr_2.0/element/15/153541_cropped-cropped-logo-nencki1.png" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=N'" alt="Nencki Institute logo" class="h-10 w-auto">
                     <div class="flex flex-col">
                         <div class="flex items-center">
                             <h3 class="text-xl font-semibold text-gray-800">PhD, Marie Sklodowska-Curie Fellow</h3>
-                            <!-- Marie Curie Actions logo added back as a smaller icon -->
-                            <img src="https://www.mariecuriealumni.eu/themes/on/images/logo.jpg" alt="Marie Curie Alumni logo" class="h-5 w-auto ml-2">
+                            <img src="https://www.mariecuriealumni.eu/themes/on/images/logo.jpg" onerror="this.src='https://placehold.co/20x20/9ca3af/ffffff?text=MC'" alt="Marie Curie Alumni logo" class="h-5 w-auto ml-2">
                         </div>
                         <p class="text-sm italic text-gray-600">Nencki Institute, Warsaw, Poland</p>
                     </div>
                 </div>
                 <!-- MSc, Molecular Medicine -->
-                <div class="edu-item flex items-center space-x-4">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPhN6gYILavwuqNPjucaZyhu0xJ-e8hWTUvg&s" alt="University of Sheffield logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPhN6gYILavwuqNPjucaZyhu0xJ-e8hWTUvg&s" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=S'" alt="University of Sheffield logo" class="h-10 w-auto">
                     <div class="flex flex-col">
                         <h3 class="text-xl font-semibold text-gray-800">MSc, Molecular Medicine</h3>
                         <p class="text-sm italic text-gray-600">The Sheffield University Medical School, UK</p>
                     </div>
                 </div>
                 <!-- PDP in Cancer Informatics -->
-                <div class="edu-item flex items-center space-x-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/sco/thumb/a/ad/Imperial_College_London_crest.svg/1200px-Imperial_College_London_crest.svg.png" alt="Imperial College London logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
+                    <img src="https://upload.wikimedia.org/wikipedia/sco/thumb/a/ad/Imperial_College_London_crest.svg/1200px-Imperial_College_London_crest.svg.png" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=I'" alt="Imperial College London logo" class="h-10 w-auto">
                     <div class="flex flex-col">
                         <h3 class="text-xl font-semibold text-gray-800">PDP in Cancer Informatics</h3>
                         <p class="text-sm italic text-gray-600">Imperial College London, UK</p>
                     </div>
                 </div>
                 <!-- BSc (Hons), Biomedical Science -->
-                <div class="edu-item flex items-center space-x-4">
-                    <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F282748109%2F177326661021%2F1%2Foriginal.20220511-134302?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1250%2C1250&s=c1ad5769f906fb9850a31346e2936306" alt="University of Wolverhampton logo" class="h-10 w-auto">
+                <div class="edu-item flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
+                    <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F282748109%2F177326661021%2F1%2Foriginal.20220511-134302?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1250%2C1250&s=c1ad5769f906fb9850a31346e2936306" onerror="this.src='https://placehold.co/40x40/9ca3af/ffffff?text=W'" alt="University of Wolverhampton logo" class="h-10 w-auto">
                     <div class="flex flex-col">
                         <h3 class="text-xl font-semibold text-gray-800">BSc (Hons), Biomedical Science</h3>
                         <p class="text-sm italic text-gray-600">University of Wolverhampton, UK</p>
@@ -213,19 +208,20 @@
         </section>
 
         <section id="research" class="mb-12 md:mb-24">
-            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Research Interests</h2>
-            <div class="text-lg text-gray-700 leading-relaxed">
-                <ul class="list-disc list-inside space-y-2">
-                    <li>Glioblastoma (GBM) tumor microenvironment</li>
+            <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Research Interests & Expertise</h2>
+            <div class="text-lg text-gray-700 leading-relaxed mb-8">
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>**Glioblastoma (GBM)** tumor microenvironment</li>
                     <li>Single-cell heterogeneity of cancer and immune cells</li>
-                    <li>Glioma-associated microglia and macrophages (GAMs)</li>
+                    <li>Glioma-associated **microglia and macrophages (GAMs)**</li>
                     <li>Molecular mechanisms of immune evasion in brain tumors</li>
                     <li>Translational research for novel GBM therapies</li>
                 </ul>
             </div>
             
             <div class="mt-8">
-                <div id="word-cloud" class="word-cloud-container max-w-prose mx-auto">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Core Research Focus</h3>
+                <div id="word-cloud" class="word-cloud-container max-w-2xl mx-auto">
                     <!-- Word cloud will be generated here by JavaScript -->
                 </div>
             </div>
@@ -234,126 +230,146 @@
         <section id="publications" class="mb-12 md:mb-24">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Selected Publications</h2>
             <div class="space-y-8 text-gray-700">
-                <div class="publication-image-wrapper">
-    <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank">
-        <img src="https://www.cell.com/cms/10.1016/j.celrep.2023.112235/asset/8e11e94f-54cb-4893-9fe1-866b61685c73/main.assets/fx1_lrg.jpg" alt="Figure 1 from the Cell Reports paper" class="w-24 h-auto flex-shrink-0 rounded-md shadow-md">
-    </a>
-          <span class="citation-overlay">25</span>
-    <div>
-        <h3 class="text-xl font-semibold text-gray-800">
-            Single-cell heterogeneity of <em>EGFR</em> and <em>CDK4</em> co-amplification is linked to immune infiltration in glioblastoma
-        </h3>
-        <p class="text-sm italic text-gray-600">
-            Kacper A Walentynowicz, Dalit Engelhardt, et al.
-        </p>
-        <p class="text-sm font-medium text-gray-500">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank" class="hover:underline text-blue-600">Cell Reports</a>, 2023 Mar 28;42(3):112235.
-        </p>
-    </div>
-</div>
-<div class="publication-image-wrapper"> 
-    <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank">
-        <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-21407-w/MediaObjects/41467_2021_21407_Fig3_HTML.png?as=webp" alt="Figure from the Nature Communications paper"  class="w-full h-auto rounded-md">
-    </a>
-        <span class="citation-overlay">377</span>
-    <div>
-        <h3 class="text-xl font-semibold text-gray-800">
-            Single-cell RNA sequencing reveals functional heterogeneity of glioma-associated brain macrophages
-        </h3>
-        <p class="text-sm italic text-gray-600">
-            Natalia Ochocka, Pawel Segit, Kacper A Walentynowicz, et. al.
-        </p>
-        <p class="text-sm font-medium text-gray-500">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="hover:underline text-blue-600">Nature Communications</a>, 2021 Feb 19;12(1):1111.
-        </p>
-    </div>
-</div>
-                <div class="publication-image-wrapper">
-    <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank">
-        <img src="https://images-provider.frontiersin.org/api/ipx/f=webp/https://www.frontiersin.org/files/Articles/369842/xml-images/fimmu-09-01329-g004.webp" alt="Figure from the Frontiers in Immunology paper" class="w-full h-auto rounded-md">
-    </a>
-        <span class="citation-overlay">60</span>
-    <div>
-        <h3 class="text-xl font-semibold text-gray-800">
-            In Search for Reliable Markers of Glioma-Induced Polarization of Microglia
-        </h3>
-        <p class="text-sm italic text-gray-600">
-            Kacper A Walentynowicz, Natalia Ochocka, et al.
-        </p>
-        <p class="text-sm font-medium text-gray-500">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank" class="hover:underline text-blue-600">Frontiers in Immunology</a>, 2018 Jun 15;9:1329.
-        </p>
-    </div>
-</div>
-                <div class="publication-image-wrapper">
-    <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank">
-        <img src="https://www.laboratoryinvestigation.org/cms/10.1038/labinvest.2017.19/asset/fa709467-b196-46a1-8e82-f5979fc97cb0/main.assets/gr1_lrg.jpg" alt="Graphical abstract from the Laboratory Investigation paper" class="w-full h-auto rounded-md">
-    </a>
-        <span class="citation-overlay">553</span>
-    <div>
-        <h3 class="text-xl font-semibold text-gray-800">
-            Immune microenvironment of gliomas
-        </h3>
-        <p class="text-sm italic text-gray-600">
-            Anna Gieryng, Dominika Pszczolkowska, Kacper A Walentynowicz, et al.
-        </p>
-        <p class="text-sm font-medium text-gray-500">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank" class="hover:underline text-blue-600">Laboratory Investigation</a>, 2017 May;97(5):498-518.
-        </p>
-    </div>
-</div>
+                
+                <!-- Publication 1 -->
+                <article class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <!-- Image/Thumbnail Container -->
+                    <div class="relative w-24 flex-shrink-0" style="height: 100px;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank" class="block w-full h-full">
+                            <img src="https://www.cell.com/cms/10.1016/j.celrep.2023.112235/asset/8e11e94f-54cb-4893-9fe1-866b61685c73/main.assets/fx1_lrg.jpg" alt="Figure 1 from the Cell Reports paper" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/96x100/374151/ffffff?text=Cell+Reports'">
+                        </a>
+                        <span class="citation-overlay">25</span>
+                    </div>
+                    <!-- Publication Details -->
+                    <div class="min-w-0">
+                        <h3 class="text-lg font-semibold text-gray-900 leading-snug">
+                            Single-cell heterogeneity of <em>EGFR</em> and <em>CDK4</em> co-amplification is linked to immune infiltration in glioblastoma
+                        </h3>
+                        <p class="text-sm italic text-gray-600 mt-1">
+                            Kacper A Walentynowicz, Dalit Engelhardt, et al.
+                        </p>
+                        <p class="text-sm font-medium text-gray-500 mt-1">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank" class="hover:underline text-blue-600">Cell Reports</a>, 2023 Mar 28;42(3):112235.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Publication 2 -->
+                <article class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative w-24 flex-shrink-0" style="height: 100px;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="block w-full h-full">
+                            <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-21407-w/MediaObjects/41467_2021_21407_Fig3_HTML.png?as=webp" alt="Figure from the Nature Communications paper" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/96x100/374151/ffffff?text=Nature+Comms'">
+                        </a>
+                        <span class="citation-overlay">377</span>
+                    </div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg font-semibold text-gray-900 leading-snug">
+                            Single-cell RNA sequencing reveals functional heterogeneity of glioma-associated brain macrophages
+                        </h3>
+                        <p class="text-sm italic text-gray-600 mt-1">
+                            Natalia Ochocka, Pawel Segit, Kacper A Walentynowicz, et. al.
+                        </p>
+                        <p class="text-sm font-medium text-gray-500 mt-1">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank" class="hover:underline text-blue-600">Nature Communications</a>, 2021 Feb 19;12(1):1111.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Publication 3 -->
+                <article class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative w-24 flex-shrink-0" style="height: 100px;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank" class="block w-full h-full">
+                            <img src="https://images-provider.frontiersin.org/api/ipx/f=webp/https://www.frontiersin.org/files/Articles/369842/xml-images/fimmu-09-01329-g004.webp" alt="Figure from the Frontiers in Immunology paper" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/96x100/374151/ffffff?text=Frontiers+in+Imm'">
+                        </a>
+                        <span class="citation-overlay">60</span>
+                    </div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg font-semibold text-gray-900 leading-snug">
+                            In Search for Reliable Markers of Glioma-Induced Polarization of Microglia
+                        </h3>
+                        <p class="text-sm italic text-gray-600 mt-1">
+                            Kacper A Walentynowicz, Natalia Ochocka, et al.
+                        </p>
+                        <p class="text-sm font-medium text-gray-500 mt-1">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank" class="hover:underline text-blue-600">Frontiers in Immunology</a>, 2018 Jun 15;9:1329.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Publication 4 -->
+                <article class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="relative w-24 flex-shrink-0" style="height: 100px;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank" class="block w-full h-full">
+                            <img src="https://www.laboratoryinvestigation.org/cms/10.1038/labinvest.2017.19/asset/fa709467-b196-46a1-8e82-f5979fc97cb0/main.assets/gr1_lrg.jpg" alt="Graphical abstract from the Laboratory Investigation paper" class="w-full h-full object-cover rounded-md shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/96x100/374151/ffffff?text=Lab+Invest'">
+                        </a>
+                        <span class="citation-overlay">553</span>
+                    </div>
+                    <div class="min-w-0">
+                        <h3 class="text-lg font-semibold text-gray-900 leading-snug">
+                            Immune microenvironment of gliomas
+                        </h3>
+                        <p class="text-sm italic text-gray-600 mt-1">
+                            Anna Gieryng, Dominika Pszczolkowska, Kacper A Walentynowicz, et al.
+                        </p>
+                        <p class="text-sm font-medium text-gray-500 mt-1">
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank" class="hover:underline text-blue-600">Laboratory Investigation</a>, 2017 May;97(5):498-518.
+                        </p>
+                    </div>
+                </article>
             </div>
         </section>
+        
         <section id="statistics" class="mb-12 md:mb-24">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Google Scholar Statistics</h2>
-            <div class="text-lg text-gray-700 leading-relaxed flex flex-col md:flex-row justify-around space-y-6 md:space-y-0 md:space-x-8">
+            <div class="text-lg text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md w-full md:w-1/3 text-center">
-                    <span id="citation-count" class="text-4xl font-bold text-gray-900 mb-2">1,030</span>
-                    <span class="text-gray-600 font-medium">Total Citations</span>
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center">
+                    <span id="citation-count" class="text-5xl font-extrabold text-indigo-700 mb-2">1,030</span>
+                    <span class="text-gray-600 font-medium text-lg">Total Citations</span>
                 </div>
                 
-                <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md w-full md:w-1/3 text-center">
-                    <span id="h-index" class="text-4xl font-bold text-gray-900 mb-2">5</span>
-                    <span class="text-gray-600 font-medium">h-index</span>
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center">
+                    <span id="h-index" class="text-5xl font-extrabold text-indigo-700 mb-2">5</span>
+                    <span class="text-gray-600 font-medium text-lg">h-index</span>
                 </div>
                 
-                <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md w-full md:w-1/3 text-center">
-                    <span id="i10-index" class="text-4xl font-bold text-gray-900 mb-2">5</span>
-                    <span class="text-gray-600 font-medium">i10-index</span>
+                <div class="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg text-center">
+                    <span id="i10-index" class="text-5xl font-extrabold text-indigo-700 mb-2">5</span>
+                    <span class="text-gray-600 font-medium text-lg">i10-index</span>
                 </div>
             </div>
-            <p class="mt-4 text-sm text-center text-gray-500">
-                Statistics last updated: Oct 16th, 2025
+            <p class="mt-8 text-sm text-center text-gray-500">
+                Statistics last updated: Oct 16th, 2025 (Mock Data)
             </p>
         </section>
+        
         <section id="contact" class="mb-8">
             <h2 class="text-3xl font-bold section-title text-gray-900 mb-6">Contact & Profiles</h2>
             <div class="text-lg text-gray-700 leading-relaxed">
-                <div class="flex items-center space-x-4">
-                    <!-- LinkedIn Link (now a black SVG) -->
-                    <a href="https://www.linkedin.com/in/kawalentynowicz/" target="_blank" class="text-gray-900 hover:text-gray-700 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+                <div class="flex items-center space-x-6">
+                    <!-- LinkedIn Link -->
+                    <a href="https://www.linkedin.com/in/kawalentynowicz/" target="_blank" title="LinkedIn Profile" class="text-gray-900 hover:text-indigo-600 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765 0-.974.784-1.765 1.75-1.765s1.75.791 1.75 1.765c0 .975-.784 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                     </a>
-                    <!-- ORCID Link (updated to new PNG) -->
-                    <a href="https://orcid.org/0000-0001-5079-1566" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
-                        <img src="https://w7.pngwing.com/pngs/833/943/png-transparent-orcid-brands-icon-thumbnail.png" alt="ORCID logo" class="h-8 w-8">
+                    <!-- ORCID Link -->
+                    <a href="https://orcid.org/0000-0001-5079-1566" target="_blank" title="ORCID Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300">
+                        <img src="https://w7.pngwing.com/pngs/833/943/png-transparent-orcid-brands-icon-thumbnail.png" alt="ORCID logo" class="h-9 w-9">
                     </a>
-                    <!-- Bluesky Link (updated to new SVG) -->
-                    <a href="https://bsky.app/profile/kacperwphd.bsky.social" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Bluesky_logo_%28black%29.svg" alt="Bluesky logo" class="h-8 w-8">
+                    <!-- Bluesky Link -->
+                    <a href="https://bsky.app/profile/kacperwphd.bsky.social" target="_blank" title="Bluesky Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Bluesky_logo_%28black%29.svg" alt="Bluesky logo" class="h-9 w-9">
                     </a>
-                    <!-- Google Scholar Link (updated to new PNG) -->
-                    <a href="https://scholar.google.com/citations?user=Xdq3g9EAAAAJ&hl=en&oi=ao" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
-                        <img src="https://img.icons8.com/?size=512&id=pU44R9xgF3wq&format=png" alt="Google Scholar logo" class="h-8 w-8">
+                    <!-- Google Scholar Link -->
+                    <a href="https://scholar.google.com/citations?user=Xdq3g9EAAAAJ&hl=en&oi=ao" target="_blank" title="Google Scholar Profile" class="text-gray-500 hover:text-indigo-600 transition-colors duration-300">
+                        <img src="https://img.icons8.com/?size=512&id=pU44R9xgF3wq&format=png" alt="Google Scholar logo" class="h-9 w-9">
                     </a>
                 </div>
             </div>
         </section>
 
-        <footer class="mt-16 text-center text-gray-500 text-sm">
+        <footer class="mt-16 text-center text-gray-500 text-sm border-t border-gray-200 pt-6">
             <p>&copy; 2025 Kacper A. Walentynowicz. All Rights Reserved.</p>
         </footer>
 
