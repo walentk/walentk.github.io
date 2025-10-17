@@ -66,6 +66,38 @@
             transform: translateY(-2px);
             color: #4b5563; /* Slightly lighter on hover */
         }
+        /* Styles for the citation overlay */
+        .publication-image-wrapper {
+            position: relative;
+            width: 96px; /* w-24 */
+            height: auto; 
+            flex-shrink: 0;
+            border-radius: 0.5rem; /* rounded-md */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: visible; /* CRITICAL: Allows the badge to stick out of the boundary */
+        }
+        /* New Circle Badge Styling */
+        .citation-overlay {
+            position: absolute;
+            /* Position to align the CENTER of the 32px circle with the corner */
+            top: -16px; 
+            right: -16px; 
+            width: 32px;
+            height: 32px;
+            
+            background-color: #1f2937; /* Dark gray for high contrast */
+            color: #ffffff; /* White text */
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 700; /* bold */
+            border-radius: 50%; /* Make it a circle */
+            box-shadow: 0 0 0 3px #f3f4f6, 0 2px 4px rgba(0, 0, 0, 0.2); /* White border to separate it from the image/background */
+            z-index: 10; 
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -206,6 +238,7 @@
     <a href="https://pubmed.ncbi.nlm.nih.gov/36920905/" target="_blank">
         <img src="https://www.cell.com/cms/10.1016/j.celrep.2023.112235/asset/8e11e94f-54cb-4893-9fe1-866b61685c73/main.assets/fx1_lrg.jpg" alt="Figure 1 from the Cell Reports paper" class="w-24 h-auto flex-shrink-0 rounded-md shadow-md">
     </a>
+          <span class="citation-overlay">25</span>
     <div>
         <h3 class="text-xl font-semibold text-gray-800">
             Single-cell heterogeneity of <em>EGFR</em> and <em>CDK4</em> co-amplification is linked to immune infiltration in glioblastoma
@@ -222,6 +255,7 @@
     <a href="https://pubmed.ncbi.nlm.nih.gov/33608526/" target="_blank">
         <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-21407-w/MediaObjects/41467_2021_21407_Fig3_HTML.png?as=webp" alt="Figure from the Nature Communications paper" class="w-24 h-auto flex-shrink-0 rounded-md shadow-md">
     </a>
+        <span class="citation-overlay">377</span>
     <div>
         <h3 class="text-xl font-semibold text-gray-800">
             Single-cell RNA sequencing reveals functional heterogeneity of glioma-associated brain macrophages
@@ -238,6 +272,7 @@
     <a href="https://pubmed.ncbi.nlm.nih.gov/29963047/" target="_blank">
         <img src="https://images-provider.frontiersin.org/api/ipx/f=webp/https://www.frontiersin.org/files/Articles/369842/xml-images/fimmu-09-01329-g004.webp" alt="Figure from the Frontiers in Immunology paper" class="w-24 h-auto flex-shrink-0 rounded-md shadow-md">
     </a>
+        <span class="citation-overlay">60</span>
     <div>
         <h3 class="text-xl font-semibold text-gray-800">
             In Search for Reliable Markers of Glioma-Induced Polarization of Microglia
@@ -254,6 +289,7 @@
     <a href="https://pubmed.ncbi.nlm.nih.gov/28287634/" target="_blank">
         <img src="https://www.laboratoryinvestigation.org/cms/10.1038/labinvest.2017.19/asset/fa709467-b196-46a1-8e82-f5979fc97cb0/main.assets/gr1_lrg.jpg" alt="Graphical abstract from the Laboratory Investigation paper" class="w-24 h-auto flex-shrink-0 rounded-md shadow-md">
     </a>
+        <span class="citation-overlay">553</span>
     <div>
         <h3 class="text-xl font-semibold text-gray-800">
             Immune microenvironment of gliomas
